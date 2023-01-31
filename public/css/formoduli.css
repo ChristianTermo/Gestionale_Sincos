@@ -1,0 +1,104 @@
+
+
+#clockContainer, .utente, .periodo{
+  font-size: 130%;
+}
+
+.utente, .orario, .opzioni, .row, .periodo{
+  text-align: center;
+}
+
+.orario, .opzioni, .row{
+  margin-top: 2%;
+}
+
+
+body{
+  background-image: url(/imagines/backgroundhard.jpg);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.cardbase {
+  width: 60%;
+  background-color: white;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.topper{
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow: auto;
+}
+
+#forlog, #forback {
+  float: left; 
+  width: 50%; 
+}
+
+#containerform{
+  clear:both;
+  padding: 5%;
+}
+
+#logout {
+  width: 20% ;
+  float: right;
+}
+
+#back {
+  width: 20% ;
+  float: left;
+  padding-top:1%;
+}
+
+#logout, #back {
+  padding: 3%;
+  background: none;
+  border: none;
+}
+
+#logout:hover{
+  cursor: pointer;
+  background-color: #585DC6;
+  color: white; 
+}
+
+
+#back:hover{
+  cursor: pointer;
+  background-color: #585DC6;
+  color: white; 
+}
+
+#presentation{
+  text-align:center;
+  font-family: 'Roboto Mono', monospace;
+  margin-bottom: 5%;
+}
+
+.row button {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #008CBA;
+  padding: 15px;
+  min-height: 15px; 
+  min-width: 115px;
+  border-radius: 15px;
+  width: 20%;
+  font-size: 130%;
+  transition: transform 2s ease, background-color 1s 5ms ease, color 1s 5ms ease;
+}
+
+.row button:hover{
+  cursor: pointer;
+  background-color: #000099;
+  color: white; 
+}
