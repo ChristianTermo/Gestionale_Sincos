@@ -24,4 +24,6 @@ class Timesheet extends Model
         'permesso_a',
         
     ];
+
+    public $timestamps = false;
 }

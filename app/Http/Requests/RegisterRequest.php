@@ -38,7 +38,6 @@ class RegisterRequest extends FormRequest
             'cap'=>'required',
             'città'=>'required',
             'provincia'=>'required',
-            'indirizzo'=>'required',
             'banca'=>'required',
             'iban'=>'required',
             'codice_fiscale'=>'required|unique:users',

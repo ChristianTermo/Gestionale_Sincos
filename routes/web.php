@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\EditDataController;
 use App\Http\Controllers\TimesheetController;
 use App\Http\Controllers\HolidayController;
 
@@ -16,9 +17,6 @@ use App\Http\Controllers\HolidayController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
@@ -36,3 +34,8 @@ Route::post('acceptHolidays', [HolidayController::class, 'acceptHoliday'])->name
 Route::post('declineHolidays', [HolidayController::class, 'declineHoliday'])->name('declineHolidays');
 Route::get('getHoliday', [HolidayController::class, 'getHoliday'])->name('getHoliday');
 Route::get('users', [CustomAuthController::class, 'getUsers'])->name('users');
+Route::post('printTimesheet',[TimesheetController::class,'printTimesheet'])->name('printTimesheet');
+Route::get('editData', [EditDataController::class, 'index'])->name('editData');
+Route::post('edit', [EditDataController::class, 'update'])->name('edit');
+
+Route::get('getHoursPerDay', [TimesheetController::class, 'getHoursPerDay'])->name('getHoursPerDay');

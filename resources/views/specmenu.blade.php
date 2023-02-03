@@ -74,9 +74,11 @@
                 <form action="{{ route('users') }}" method="get">
                     <button type="submit">Anagrafica e contatti</button>
                 </form>
-
                 <!-- fare query get timesheet -->
-                <button type="submit">Download orario dipendenti</button>
+                <form action="{{ route('printTimesheet') }}" method="post">
+                    @csrf
+                    <button type="submit">Download orario dipendenti</button>
+                </form>
 
             </div>
             @elseif ( Auth::user()->ruolo == 'intermedio' || Auth::user()->ruolo == 'standard')
@@ -85,12 +87,16 @@
                 <form action="{{ route('users') }}" method="get">
                     <button type="submit">Anagrafica e contatti</button>
                 </form>
-                <button type="submit">Download orario dipendenti</button>
+                <form action="{{ route('printTimesheet') }}" method="post">
+                    <button type="submit">Download orario dipendenti</button>
+                </form>
             </div>
             @endif
             <div id="personalInfo" class="containerbuttons">
                 <h1>PERSONALE</h1>
-                <button type="submit">Modifica dati personali</button>
+                <form action="{{ route('editData') }}" method="get">
+                    <button type="submit">Modifica dati personali</button>
+                </form>
                 <form action="{{ route('richiestaferie') }}" method="get">
                     <button type="submit">Richiesta ferie</button>
                 </form>

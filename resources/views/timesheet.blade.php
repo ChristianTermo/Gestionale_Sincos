@@ -69,33 +69,35 @@
     <!-- form per entrate/uscite -->
     <div id="containerform">
       <h1 id="presentation">Registrazione entrate & uscite</h1>
-      <form action="{{ route('setTimesheet') }}" method="post">
-        @csrf
-        <div class="utente">
-          <div id="nome">{{ Auth::user()->nome }}</div>
-          <div id="cognome">{{ Auth::user()->cognome }}</div>
-        </div>
-        <div class="orario">
-          <div id="clockContainer">
-            <div id="ora"> </div>
-            <div id="giorno"> </div>
+      <div id="alignform">
+        <form action="{{ route('setTimesheet') }}" method="post">
+          @csrf
+          <div class="utente">
+            <div id="nome">{{ Auth::user()->nome }}</div>
+            <div id="cognome">{{ Auth::user()->cognome }}</div>
           </div>
-        </div>
-        <br>
-        <div class="row">
-          <button class="submit" type="submit" class="btn btn-success">Invia</button>
-        </div>
-      </form>
+          <div class="orario">
+            <div id="clockContainer">
+              <div id="ora"> </div>
+              <div id="giorno"> </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <button class="submit" type="submit" class="btn btn-success">Invia</button>
+          </div>
+        </form>
+      </div>
+      <div id="presenzep">
+        @foreach($timesheets as $timesheet)
+        <h3>Timbrature:</h3>
+        <p>Entrata Mattina: {{ $timesheet->orario_ingresso_mattina }}</p>
+        <p>Pranzo: {{ $timesheet->orario_uscita_mattina }}</p>
+        <p>Rientro Pranzo: {{ $timesheet->orario_ingresso_pomeriggio }}</p>
+        <p>Uscita: {{ $timesheet->orario_uscita_pomeriggio }}</p>
+        @endforeach
+      </div>
     </div>
-    @foreach($timesheets as $timesheet)
-    <div id="presenzep">
-      <h3>Timbrature:</h3>
-      <p>{{ $timesheet->orario_ingresso_mattina }}</p>
-      <p>{{ $timesheet->orario_uscita_mattina }}</p>
-      <p>{{ $timesheet->orario_ingresso_pomeriggio }}</p>
-      <p>{{ $timesheet->orario_uscita_pomeriggio }}</p>
-    </div>
-    @endforeach
   </div>
 </body>
 
@@ -112,6 +114,7 @@
   #presenzep {
     border-radius: 25px;
     border: 2px solid #73AD21;
+    text-align: justify;
   }
 
   #alignform {

@@ -15,12 +15,12 @@
     <section id="main">
         <div class="dimensionb">
             <h1 id="actionname"> Lista richieste ferie</h1>
-            <div class="scletaS">
+           <!-- <div class="scletaS">
                 <select name="valutato" id="val-select">
                     <option value="ongoing">- da valutare</option>
                     <option value="completed">- valutate</option>
                 </select>
-            </div>
+            </div>-->
             <form action="{{ route('acceptHolidays') }}" method="post">
                 @csrf
                 <table>
