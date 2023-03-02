@@ -28,17 +28,17 @@ class CustomAuthController extends Controller
                 ->withSuccess('Signed in');
         }
 
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("/")->withErrors('credenziali errate');
         //return $token;
     }
 
     public function dashboard()
     {
-        if (Auth::check()) {
-            return view('dashboard');
-        }
+        //  if (Auth::check()) {
+        return view('dashboard');
+        //}
 
-        return redirect("login")->withSuccess('You are not allowed to access');
+        //   return redirect("login")->withSuccess('You are not allowed to access');
     }
 
     public function getRegisterForm()
@@ -49,7 +49,6 @@ class CustomAuthController extends Controller
     public function register(RegisterRequest $request)
     {
         if (Auth::user()->ruolo == 'admin') {
-
             $user = User::create([
                 'matricola' => $request['matricola'],
                 'ruolo' => $request['ruolo'],
@@ -79,6 +78,7 @@ class CustomAuthController extends Controller
 
             $user->assignRole($role);
 
+            // return $user;
             return redirect('panel');
         }
     }
@@ -102,6 +102,7 @@ class CustomAuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return Redirect('login');
+        return Redirect('/');
     }
+   
 }

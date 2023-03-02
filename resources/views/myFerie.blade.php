@@ -12,7 +12,8 @@
         <!-- button container-->
         <section id="main">
             <div class="dimensionb">
-                <h1 id="actionname"> Lista richieste ferie</h1>
+                <h1 id="actionname">Lista richieste ferie</h1>
+                <h5 id="actionname">Se l'approvazione è 1 la richiesta è stata accettata</h5>
                 <table>
                     <tr>
                        <th>Approvazione</th>

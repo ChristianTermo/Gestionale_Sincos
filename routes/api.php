@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('auth/register', 'App\Http\Controllers\CustomAuthController@register');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
-Route::post('setTimeEntry', 'App\Http\Controllers\TimesheetController@setEntryTime');
+//Route::post('auth/register', 'App\Http\Controllers\CustomAuthController@register');
+//Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+//Route::post('setTimeEntry', 'App\Http\Controllers\TimesheetController@setEntryTime');

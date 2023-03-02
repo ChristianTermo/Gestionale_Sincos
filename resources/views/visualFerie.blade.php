@@ -41,8 +41,8 @@
                                 <label for="accepted">No</label>
                                 <input type="radio" id="accepted" name="accepted" value="false">-->
                             <select name="accepted">
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
                             </select>
                         </td>
                         <td>{{ $holiday->giorno_richiesta }}</td>

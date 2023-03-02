@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EditDataController;
 use App\Http\Controllers\TimesheetController;
 use App\Http\Controllers\HolidayController;
+use App\Http\Controllers\help4youcontroller\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use App\Http\Controllers\HolidayController;
 
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard'); 
-Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::get('/', [CustomAuthController::class, 'index'])->name('/');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
 Route::get('timesheet', [TimesheetController::class, 'getTimesheet'])->name('timesheet');
@@ -37,5 +38,7 @@ Route::get('users', [CustomAuthController::class, 'getUsers'])->name('users');
 Route::post('printTimesheet',[TimesheetController::class,'printTimesheet'])->name('printTimesheet');
 Route::get('editData', [EditDataController::class, 'index'])->name('editData');
 Route::post('edit', [EditDataController::class, 'update'])->name('edit');
-
 Route::get('getHoursPerDay', [TimesheetController::class, 'getHoursPerDay'])->name('getHoursPerDay');
+
+Route::get('changePassword', [EditDataController::class, 'changePassword'])->name('changePassword');
+Route::post('submitNewPassword', [EditDataController::class, 'submitNewPassword'])->name('submitNewPassword');

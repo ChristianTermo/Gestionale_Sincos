@@ -88,6 +88,7 @@
                     <button type="submit">Anagrafica e contatti</button>
                 </form>
                 <form action="{{ route('printTimesheet') }}" method="post">
+                    @csrf
                     <button type="submit">Download orario dipendenti</button>
                 </form>
             </div>
@@ -102,6 +103,9 @@
                 </form>
                 <form action="{{ route('getHoliday') }}" method="get">
                     <button type="submit">Mie ferie</button>
+                </form>
+                <form action="{{ route('changePassword') }}" method="get">
+                    <button type="submit">Modifica Password</button>
                 </form>
             </div>
         </div>

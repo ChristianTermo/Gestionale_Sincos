@@ -15,15 +15,16 @@
                 <div class="icon">
                     <img src="/imagines/siconsLogo.png" alt="logos">
                 </div>
-                @if(count($errors) > 0)
+                
+                <form action=" {{ route('login.custom') }} " method="POST">
+                    @csrf
+                    @if(count($errors) > 0)
                 <ul>
                     @foreach($errors->all() as $error)
                     <li> {{ $error }} </li>
                     @endforeach
                 </ul>
                 @endif
-                <form action=" {{ route('login.custom') }} " method="POST">
-                    @csrf
                     <div class="inputs">
                         <svg class="login" xmlns="http://www.w3.org/2000/svg" width="44" height="40" viewBox="0 0 44 40">
                             <g stroke="#fff" fill="none" stroke-width="3.538" transform="translate(0 -1012.362)">

@@ -25,7 +25,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'matricola'=>'required|unique:users,matricola',
-            'ruolo'=>'required|exists:roles,name',
+            'ruolo'=>'required',
             'email_personale'=>'required|email|unique:users,email_personale',
             'email_aziendale'=>'required|email|unique:users,email_aziendale',
             'nome'=>'required',

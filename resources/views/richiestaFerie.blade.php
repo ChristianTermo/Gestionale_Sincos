@@ -64,7 +64,7 @@
             <input type="date" id="ferie_a" name="ferie_a" required>
           </div>
           <br>
-          <label for="fineF">Compreso</label>
+          <label for="fineF">Compresi</label>
         </div>
         <br>
         <div class="row">

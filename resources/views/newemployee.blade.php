@@ -99,6 +99,8 @@
                                 <option value="DBA">DBA</option>
                                 <option value="programmatore">programmatore</option>
                                 <option value="sistemista">sistemista</option>
+                                <option value="commercialista">commercialista</option>
+                                <option value="ricercaesviluppo">ricerca e sviluppo</option>
                             </select>
                         </label>
                     </div>
@@ -174,7 +176,7 @@
                     </p>
                     <p>
                         <label for="iban">IBAN
-                            <input type="text" id="iban" name="iban" minlength="26" maxlength="26" required>
+                            <input type="text" id="iban" name="iban" minlength="27" maxlength="27" required>
                         </label>
                     </p>
                 </div>

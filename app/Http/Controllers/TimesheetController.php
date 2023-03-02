@@ -41,6 +41,7 @@ class TimesheetController extends Controller
             Timesheet::insert(
                 [
                     'id_utente' => Auth::user()->id,
+                    'matricola' => Auth::user()->matricola,
                     'nome' => Auth::user()->nome,
                     'cognome' => Auth::user()->cognome,
                     'data' => Carbon::now()->format('Y-m-d'),
@@ -48,6 +49,7 @@ class TimesheetController extends Controller
                     'mese' =>  Carbon::now()->format('m'),
                     'giorno' =>  Carbon::now()->format('d'),
                     'orario_ingresso_mattina' => Carbon::now()->format('H:i'),
+                    'incarico' => Auth::user()->incarico
                 ]
             );
 
@@ -90,7 +92,6 @@ class TimesheetController extends Controller
                 ->where('data', '=', Carbon::now()->format('Y-m-d'))
                 ->update([
                     'orario_uscita_pomeriggio' => Carbon::now()->format('H:i'),
-                    //'ore_totali' => $this->getHoursPerDay()
                 ]);
 
             TotalHour::where('id_utente', '=', Auth::user()->id)
@@ -119,8 +120,9 @@ class TimesheetController extends Controller
 
     public function printTimesheet()
     {
+       $month = Carbon::now()->format('M-Y');
         return (new FastExcel(Timesheet::all()->where('mese', '=', Carbon::now()->format('m'))))
-            ->download('timesheet.csv');
+            ->download($month.'.csv');
     }
 
     public function getHoursPerDay()

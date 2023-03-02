@@ -22,7 +22,7 @@ class Timesheet extends Model
         'straordinario',
         'permesso_da',
         'permesso_a',
-        
+        'incarico',
     ];
 
     public $timestamps = false;

@@ -1,0 +1,2 @@
+﻿id,id_utente,anno,mese,giorno,orario_ingresso_mattina,orario_uscita_mattina,orario_ingresso_pomeriggio,orario_uscita_pomeriggio,straordinario,created_at,updated_at,data
+1,2,2023,2,1,10:02:00,10:02:00,10:02:00,10:02:00,,,2023-02-01T09:02:29.000000Z,2023-02-01

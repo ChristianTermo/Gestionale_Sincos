@@ -32,7 +32,7 @@ class HolidayController extends Controller
                 'cognome' => Auth::user()->cognome,
                 'giorno_richiesta' => Carbon::now()->format('Y-m-d'),
                 'note' => $request['note'],
-                'user_id' => Auth::user()->id,
+                'id_utente' => Auth::user()->id,
             ]
         );
 
@@ -81,7 +81,7 @@ class HolidayController extends Controller
 
     public function getHoliday()
     {
-        $holidaysList =  Holiday::all()->where('user_id', '=', Auth::user()->id);
+        $holidaysList =  Holiday::all()->where('id_utente', '=', Auth::user()->id);
 
         $data = [
             "holidaysList" => $holidaysList

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class EditDataController extends Controller
 {
@@ -30,7 +32,7 @@ class EditDataController extends Controller
             'banca' => 'required',
             'iban' => 'required',
         ]);
-        
+
         $user->nome = $request->input('nome');
         $user->cognome = $request->input('cognome');
         $user->email_personale = $request->input('email_personale');
@@ -44,5 +46,24 @@ class EditDataController extends Controller
         $user->save();
 
         return redirect('panel');
+    }
+
+    public function changePassword()
+    {
+        return view('changePassword');
+    }
+
+    public function submitNewPassword(Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password'
+        ]);
+
+        User::where('id', '=', Auth::user()->id)->update([
+            'password' => $request['password']
+        ]);
+
+        return redirect('changePassword')->withErrors('password aggiornata');
     }
 }
