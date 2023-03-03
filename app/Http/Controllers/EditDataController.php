@@ -61,7 +61,7 @@ class EditDataController extends Controller
         ]);
 
         User::where('id', '=', Auth::user()->id)->update([
-            'password' => $request['password']
+            'password' => Hash::make($request['password'])
         ]);
 
         return redirect('changePassword')->withErrors('password aggiornata');

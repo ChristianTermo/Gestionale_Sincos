@@ -17,12 +17,13 @@ use App\Http\Controllers\help4youcontroller\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('/', [CustomAuthController::class, 'index'])->name('/');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
+
+
+Route::group(['middleware' => 'RedirectToLogin'], function () {
+Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('timesheet', [TimesheetController::class, 'getTimesheet'])->name('timesheet');
 Route::get('richiestaferie', [HolidayController::class, 'getRichiestaFerie'])->name('richiestaferie');
 Route::post('setTimesheet',[TimesheetController::class,'setTimesheet'])->name('setTimesheet');
@@ -39,6 +40,6 @@ Route::post('printTimesheet',[TimesheetController::class,'printTimesheet'])->nam
 Route::get('editData', [EditDataController::class, 'index'])->name('editData');
 Route::post('edit', [EditDataController::class, 'update'])->name('edit');
 Route::get('getHoursPerDay', [TimesheetController::class, 'getHoursPerDay'])->name('getHoursPerDay');
-
 Route::get('changePassword', [EditDataController::class, 'changePassword'])->name('changePassword');
 Route::post('submitNewPassword', [EditDataController::class, 'submitNewPassword'])->name('submitNewPassword');
+});

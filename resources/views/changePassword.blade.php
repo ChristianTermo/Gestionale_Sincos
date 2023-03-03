@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="/css/formoduli.css" /> 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-      <title>Modifica miei dati</title>
-      <script  type="text/javascript">
-              function init() {
-                var x = document.getElementById("npassword");
-                if (x.type === "password") {
-                  x.type = "text";
-                } else {
-                  x.type = "password";
-                }
-              }
-              function init2() {
-                var x = document.getElementById("npasswordR");
-                if (x.type === "password") {
-                  x.type = "text";
-                } else {
-                  x.type = "password";
-                }
-              }
 
-        </script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/formoduli.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <title>Modifica miei dati</title>
+  <script type="text/javascript">
+    function init() {
+      var x = document.getElementById("npassword");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
 
-  <body>
+    function init2() {
+      var x = document.getElementById("npasswordR");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
+</head>
+
+<body>
   <div class="cardbase">
-        <!-- barra in alto -->
-        <div class="topper">
-          <!-- bottone indietro-->
-          <div id="forback">
+    <!-- barra in alto -->
+    <div class="topper">
+      <!-- bottone indietro-->
+      <div id="forback">
         <form action="{{ route('panel') }}" method="get">
           <button id="back">
         </form>
@@ -41,8 +42,8 @@
         </svg>
         </button>
       </div>
-          <!-- bottone per logout-->
-          <div id="forlog">
+      <!-- bottone per logout-->
+      <div id="forlog">
         <form action="{{ route('logout') }}" method="get">
           <button id="logout">
         </form>
@@ -62,81 +63,85 @@
       </div>
     </div>
 
-        <!-- form per entrate/uscite -->
-        <div id="containerform">
-          <h1 id="bannerintro">Cambia Password</h1>
-          <div class="container">
-           <form action="{{ route('submitNewPassword') }}" method="post">
-              <div class="personald">
-                <div class="rowsection">
-                  <div class="col-25" id="onlyforP2">
-                    <label for="npassword" >Nuova Password</label>
-                  </div>
-                  <div class="col-75">
-                    <input type="password" id="npassword" name="password" placeholder="nuova password">
-                    <i class="far fa-eye" id="togglePassword" onclick="init()"style="margin-left: -30px; cursor: pointer;"></i>
+    <!-- form per entrate/uscite -->
+    <div id="containerform">
+      <h1 id="bannerintro">Cambia Password</h1>
+      <div class="container">
+        <form action="{{ route('submitNewPassword') }}" method="post">
+          @csrf
+          <div class="personald">
+            <div class="rowsection">
+              <div class="col-25" id="onlyforP2">
+                <label for="npassword">Nuova Password</label>
+              </div>
+              <div class="col-75">
+                <input type="password" id="npassword" name="password" placeholder="nuova password">
+                <i class="far fa-eye" id="togglePassword" onclick="init()" style="margin-left: -30px; cursor: pointer;"></i>
+                </input>
+              </div>
+              <div class="rowsection">
+                <div class="col-25" id="onlyforP">
+                  <label for="npasswordR">Ripeti Nuova Password</label>
+                </div>
+                <div class="col-75">
+                  <input type="password" id="npasswordR" name="password_confirmation" placeholder="ripeti password">
+                  <i class="far fa-eye" id="togglePassword2" onclick="init2()" style="margin-left: -30px; cursor: pointer;"></i>
                   </input>
                 </div>
-                <div class="rowsection">
-                  <div class="col-25" id="onlyforP">
-                    <label for="npasswordR">Ripeti Nuova Password</label>
-                  </div>
-                  <div class="col-75">
-                    <input type="password" id="npasswordR" name="password_confirmation" placeholder="ripeti password">
-                      <i class="far fa-eye" id="togglePassword2" onclick="init2()"style="margin-left: -30px; cursor: pointer;"></i>
-                    </input>
-                  </div>
-                </div>
               </div>
-              <br>
-              <div class="row">
-                <button class ="submit" type="submit" class="btn btn-success">Invia</button>
-              </div>
-            </form>
-          </div>
-        </div>
+            </div>
+            <br>
+            <div class="row">
+              <button class="submit" type="submit" class="btn btn-success">Invia</button>
+            </div>
+        </form>
       </div>
-    </body>
+    </div>
+  </div>
+</body>
+
 </html>
 
 <style>
-
-.rowsection{
+  .rowsection {
     text-align: center;
-}
+  }
 
 
-#onlyforP, #onlyforP2, #onlyforP3{
+  #onlyforP,
+  #onlyforP2,
+  #onlyforP3 {
     margin-top: 3%;
-}
-form {
-  text-align: center;
-}
+  }
 
-#bannerintro {
-  text-align:center;
-  font-family: 'Roboto Mono', monospace;
-  margin:auto;
-}
+  form {
+    text-align: center;
+  }
 
-#containerform{
-  padding: 3%;
-}
+  #bannerintro {
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    margin: auto;
+  }
 
-#vpassword{
-    background-color: white; 
-    color: black; 
+  #containerform {
+    padding: 3%;
+  }
+
+  #vpassword {
+    background-color: white;
+    color: black;
     border: 2px solid black;
     padding: 15px;
-    min-height: 15px; 
+    min-height: 15px;
     min-width: 115px;
     font-size: 100%;
     width: 30%;
-    margin:auto;
-}
+    margin: auto;
+  }
 
-#npassword, #npasswordR{
+  #npassword,
+  #npasswordR {
     width: 30%;
-}
+  }
 </style>
-
