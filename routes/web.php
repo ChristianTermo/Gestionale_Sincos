@@ -22,7 +22,7 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
 
 
-Route::group(['middleware' => 'RedirectToLogin'], function () {
+Route::middleware([RedirectToLogin::class])->group(function () {
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard'); 
 Route::get('timesheet', [TimesheetController::class, 'getTimesheet'])->name('timesheet');
 Route::get('richiestaferie', [HolidayController::class, 'getRichiestaFerie'])->name('richiestaferie');

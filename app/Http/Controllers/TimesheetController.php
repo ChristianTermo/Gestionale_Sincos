@@ -120,9 +120,13 @@ class TimesheetController extends Controller
 
     public function printTimesheet()
     {
-       $month = Carbon::now()->format('M-Y');
-        return (new FastExcel(Timesheet::all()->where('mese', '=', Carbon::now()->format('m'))))
-            ->download($month.'.csv');
+        $month = Carbon::now()->format('M-Y');
+ 
+          return (new FastExcel(Timesheet::all()
+          ->sortBy('matricola') 
+          ->where('mese', '=', Carbon::now()
+          ->format('m'))))
+            ->download($month . '.csv');
     }
 
     public function getHoursPerDay()
@@ -180,13 +184,13 @@ class TimesheetController extends Controller
 
         if ($minuteStart >= 30) {
             $hourStart = $hourStart + 1;
-        } 
+        }
         if ($minuteEnd >= 30) {
             $hourEnd = $hourEnd + 1;
-        } 
+        }
         if ($minuteStart1 >= 30) {
             $hourStart1 = $hourStart1 + 1;
-        } 
+        }
         if ($minuteEnd1 >= 30) {
             $hourEnd1 = $hourEnd1 + 1;
         }
@@ -202,6 +206,4 @@ class TimesheetController extends Controller
 
         return $numberOfHours;
     }
-
-
 }

@@ -17,7 +17,7 @@ class RedirectToLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->nome == null) {
+        if (!isset(Auth::user()->nome)) {
             return redirect('/')->withErrors('sessione scaduta, effettuare il login');
         }
         return $next($request);

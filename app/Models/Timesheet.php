@@ -9,7 +9,9 @@ class Timesheet extends Model
 {
     use HasFactory;
 
-    protected $fillable = [     
+    protected $fillable = [   
+        'nome',
+        'cognome',  
         'matricola',
         'id_utente',
         'anno',
